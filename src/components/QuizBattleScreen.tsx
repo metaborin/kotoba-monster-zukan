@@ -10,6 +10,7 @@ import {
   PERFECT_XP_BONUS,
   shuffle,
 } from "../utils/gameLogic";
+import { MonsterImage } from "./MonsterImage";
 
 type Phase = "answering" | "correct" | "wrong";
 
@@ -238,7 +239,7 @@ export function QuizBattleScreen({
               className={`battle-team-monster ${isHelper ? "battle-helper" : ""}`}
               title={m.name}
             >
-              {m.icon}
+              <MonsterImage monster={m} />
             </span>
           );
         })}
@@ -365,7 +366,7 @@ export function QuizBattleScreen({
               💡 ヒント
               {hintFree && helper && (
                 <span className="hint-helper-note">
-                  {helper.icon} {helper.name}が てつだってくれる！
+                  <MonsterImage monster={helper} /> {helper.name}が てつだってくれる！
                 </span>
               )}
             </button>

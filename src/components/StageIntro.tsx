@@ -2,6 +2,7 @@ import type { Stage } from "../types/quiz";
 import type { SaveData } from "../types/progress";
 import { getMonster } from "../data/monsters";
 import { CLEAR_CORRECT_COUNT } from "../utils/gameLogic";
+import { MonsterImage } from "./MonsterImage";
 import { StatusBar } from "./StatusBar";
 
 const TYPE_LABEL: Record<string, string> = {
@@ -48,7 +49,7 @@ export function StageIntro({
             {reward && (
               <>
                 <span className="intro-monster-icon">
-                  {rewardOwned ? reward.icon : "❓"}
+                  <MonsterImage monster={reward} unknown={!rewardOwned} />
                 </span>{" "}
                 {rewardOwned ? reward.name : "？？？"}
               </>

@@ -2,6 +2,7 @@ import { STAGES } from "../data/stages";
 import { getMonster } from "../data/monsters";
 import { MISSIONS } from "../data/missions";
 import type { SaveData } from "../types/progress";
+import { MonsterImage } from "./MonsterImage";
 import { StatusBar } from "./StatusBar";
 
 type Props = {
@@ -57,7 +58,7 @@ export function WorldMap({
           const m = getMonster(id);
           return (
             <span key={id} className="map-team-monster" title={m?.name}>
-              {m?.icon}
+              {m && <MonsterImage monster={m} />}
             </span>
           );
         })}

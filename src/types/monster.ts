@@ -10,6 +10,7 @@ export type KotobaMonster = {
   id: string;
   name: string;
   icon: string;
+  image: string;
   element: MonsterElement;
   description: string;
   skillName: string;

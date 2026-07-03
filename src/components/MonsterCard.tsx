@@ -1,6 +1,7 @@
 import type { KotobaMonster } from "../types/monster";
 import type { MonsterProgress } from "../types/progress";
 import { levelTitle, xpToNextLevel, MAX_LEVEL } from "../utils/monsterLogic";
+import { MonsterImage } from "./MonsterImage";
 
 type Props = {
   monster: KotobaMonster;
@@ -42,7 +43,9 @@ export function MonsterCard({
   if (!owned) {
     return (
       <div className={classes} onClick={onClick}>
-        <div className="monster-icon monster-icon-unknown">❓</div>
+        <div className="monster-icon monster-icon-unknown">
+          <MonsterImage monster={monster} unknown />
+        </div>
         <div className="monster-name">？？？</div>
         {!compact && (
           <div className="monster-desc">まだ であっていないよ</div>
@@ -57,7 +60,9 @@ export function MonsterCard({
         {level >= 5 && <span className="monster-crown">👑</span>}
         {level >= 4 && <span className="monster-sparkle">✨</span>}
       </div>
-      <div className="monster-icon">{monster.icon}</div>
+      <div className="monster-icon">
+        <MonsterImage monster={monster} />
+      </div>
       <div className="monster-name">{monster.name}</div>
       <div className="monster-level-stars">
         {"★".repeat(level)}

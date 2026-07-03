@@ -2,6 +2,7 @@ import type { ResultInfo, SaveData } from "../types/progress";
 import { getStage } from "../data/stages";
 import { getMonster } from "../data/monsters";
 import { MonsterCard } from "./MonsterCard";
+import { MonsterImage } from "./MonsterImage";
 
 type Props = {
   result: ResultInfo;
@@ -118,7 +119,9 @@ export function ResultScreen({
               if (!m) return null;
               return (
                 <div key={id} className="levelup-monster card-bounce">
-                  <span className="levelup-icon">{m.icon}</span>
+                  <span className="levelup-icon">
+                    <MonsterImage monster={m} />
+                  </span>
                   <span>
                     {m.name} が Lv.{level} に なった！
                   </span>

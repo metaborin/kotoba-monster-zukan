@@ -1,6 +1,7 @@
 import { MONSTERS } from "../data/monsters";
 import type { SaveData } from "../types/progress";
 import { MonsterCard } from "./MonsterCard";
+import { MonsterImage } from "./MonsterImage";
 import { StatusBar } from "./StatusBar";
 
 const TEAM_SIZE = 3;
@@ -40,7 +41,9 @@ export function TeamScreen({ save, onChangeTeam, onBack }: Props) {
             <div key={i} className="team-slot">
               {monster ? (
                 <>
-                  <span className="team-slot-icon">{monster.icon}</span>
+                  <span className="team-slot-icon">
+                    <MonsterImage monster={monster} />
+                  </span>
                   <span className="team-slot-name">{monster.name}</span>
                 </>
               ) : (
