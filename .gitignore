@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.local
+
+# エディタ・OS
+.DS_Store
+Thumbs.db
